@@ -7,7 +7,6 @@ use strict 'vars';
 
 my %parsed = &parseCommandLine();
 
-#my $command = "aws cloudformation estimate-template-cost --template-body=file://" . $parsed[0] . " --parameters $parsed[1] $parsed[2]";
 my $command = "aws cloudformation estimate-template-cost --template-body=file://" . $parsed{'file'} . " --parameters $parsed{'parameterString'} $parsed{'args'}";
 
 print "Executing [$command]\n";
@@ -62,7 +61,7 @@ sub parseCommandLine
    ##Return all the values as a list which can (should) be used to initialize a hash.
    ##The hash will have keys "file", "parameterString", and "args", matching what was
    ##found through the parse.
-    return ('file',$file,'parameterString',$parameterString,'args',@args);
+   return ('file',$file,'parameterString',$parameterString,'args',@args);
 }
 
 sub usage
